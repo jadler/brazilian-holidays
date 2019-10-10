@@ -3,7 +3,7 @@
 ;; Copyright (C) 2019 Jaguaraquem A. Reinaldo
 
 ;; Author: Jaguaraquem A. Reinaldo <jaguar.adler@gmail.com>
-;; Version: 1.0.1
+;; Version: 1.0.2
 ;; URL: https://github.com/jadler/brazilian-holidays
 ;; Keywords: calendar holidays
 ;; Package-Requires: ((emacs "26"))
@@ -45,7 +45,7 @@
   (require 'holidays))
 
 (defvar brazilian-general-holidays nil
-  "National brazilian holidays")
+  "National brazilian holidays.")
 (setq brazilian-general-holidays
       '((holiday-fixed       1    1 "Confraternização Universal")
         (holiday-fixed       4   21 "Tiradentes")
@@ -55,7 +55,7 @@
         (holiday-fixed      11   15 "Proclamação da República")))
 
 (defvar brazilian-christian-holidays nil
-  "Christian brazilian holidays")
+  "Christian brazilian holidays.")
 (setq brazilian-christian-holidays
       '((holiday-easter-etc      -2 "Paixão de Cristo")
         (holiday-easter-etc       0 "Páscoa")
@@ -63,7 +63,7 @@
         (holiday-fixed      12   25 "Natal")))
 
 (defvar brazilian-other-holidays nil
-  "Other holidays and commemorative brazilian dates")
+  "Other holidays and commemorative brazilian dates.")
 (setq brazilian-other-holidays
       '((holiday-fixed       1    6 "Dia de Reis")
         (holiday-fixed       1    9 "Dia do Fico")
@@ -87,7 +87,7 @@
         (holiday-fixed      11   19 "Dia da Bandeira")))
 
 (defvar brazilian-rj-holidays nil
-  "Regional holidays and commemorative dates for Rio de Janeiro State")
+  "Regional holidays and commemorative dates for Rio de Janeiro State.")
 (if brazilian-rj-holidays
     (setq holiday-local-holidays
           (append
@@ -99,6 +99,8 @@
              (holiday-float      10 0  3 "Dia do Comércio")
              (holiday-fixed      11   20 "Consciência Negra")))))
 
+(defvar brazilian-sp-holidays nil
+  "Regional holidays and commemorative dates for São Paulo State.")
 (if brazilian-sp-holidays
     (setq holiday-local-holidays
           (append
@@ -106,7 +108,7 @@
            '((holiday-fixed        7   9 "Dia da Revolução Constitucionalista")))))
 
 (defvar brazilian-remove-holidays t
-  "Remove holidays from other countries")
+  "Remove holidays from other countries.")
 (when brazilian-remove-holidays
   (setq holiday-bahai-holidays nil)
   (setq holiday-hebrew-holidays nil)
