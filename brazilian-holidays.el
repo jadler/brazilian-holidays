@@ -45,7 +45,7 @@
   (require 'holidays))
 
 (defvar brazilian-general-holidays nil
-  "National brazilian holidays")
+  "National brazilian holidays.")
 (setq brazilian-general-holidays
       '((holiday-fixed       1    1 "Confraternização Universal")
         (holiday-fixed       4   21 "Tiradentes")
@@ -55,7 +55,7 @@
         (holiday-fixed      11   15 "Proclamação da República")))
 
 (defvar brazilian-christian-holidays nil
-  "Christian brazilian holidays")
+  "Christian brazilian holidays.")
 (setq brazilian-christian-holidays
       '((holiday-easter-etc      -2 "Paixão de Cristo")
         (holiday-easter-etc       0 "Páscoa")
@@ -63,7 +63,7 @@
         (holiday-fixed      12   25 "Natal")))
 
 (defvar brazilian-other-holidays nil
-  "Other holidays and commemorative brazilian dates")
+  "Other holidays and commemorative brazilian dates.")
 (setq brazilian-other-holidays
       '((holiday-fixed       1    6 "Dia de Reis")
         (holiday-fixed       1    9 "Dia do Fico")
@@ -87,7 +87,7 @@
         (holiday-fixed      11   19 "Dia da Bandeira")))
 
 (defvar brazilian-rj-holidays nil
-  "Regional holidays and commemorative dates for Rio de Janeiro State")
+  "Regional holidays and commemorative dates for Rio de Janeiro State.")
 (if brazilian-rj-holidays
     (setq holiday-local-holidays
           (append
@@ -106,7 +106,7 @@
            '((holiday-fixed        7   9 "Dia da Revolução Constitucionalista")))))
 
 (defvar brazilian-remove-holidays t
-  "Remove holidays from other countries")
+  "Remove holidays from other countries.")
 (when brazilian-remove-holidays
   (setq holiday-bahai-holidays nil)
   (setq holiday-hebrew-holidays nil)
