@@ -3,7 +3,7 @@
 ;; Copyright (C) 2019 Jaguaraquem A. Reinaldo
 
 ;; Author: Jaguaraquem A. Reinaldo <jaguar.adler@gmail.com>
-;; Version: 1.0.0
+;; Version: 1.0.1
 ;; URL: https://github.com/jadler/brazilian-holidays
 ;; Keywords: calendar holidays
 ;; Package-Requires: ((emacs "26"))
