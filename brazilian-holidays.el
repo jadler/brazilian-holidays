@@ -67,7 +67,7 @@
 (setq brazilian-other-holidays
       '((holiday-fixed       1    6 "Dia de Reis")
         (holiday-fixed       1    9 "Dia do Fico")
-        (holiday-easter-etc     -49 "Quaresma")
+        (holiday-easter-etc     -46 "Início da Quaresma")
         (holiday-fixed       3    8 "Dia Internacional da Mulher")
         (holiday-fixed       4    1 "Dia da Mentira")
         (holiday-fixed       4   19 "Dia do Índio")
@@ -93,8 +93,8 @@
           (append
            holiday-local-holidays
            '((holiday-fixed       1   20 "São Sebastião")
-             (holiday-easter-etc     -50 "Carnaval")
-             (holiday-easter-etc     -49 "Quarta-feira de cinzas")
+             (holiday-easter-etc     -47 "Carnaval")
+             (holiday-easter-etc     -46 "Quarta-feira de cinzas")
              (holiday-fixed       4   23 "São Jorge")
              (holiday-float      10 0  3 "Dia do Comércio")
              (holiday-fixed      11   20 "Consciência Negra")))))
