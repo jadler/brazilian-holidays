@@ -99,6 +99,8 @@
              (holiday-float      10 0  3 "Dia do Comércio")
              (holiday-fixed      11   20 "Consciência Negra")))))
 
+(defvar brazilian-sp-holidays nil
+  "Regional holidays and commemorative dates for São Paulo State.")
 (if brazilian-sp-holidays
     (setq holiday-local-holidays
           (append
