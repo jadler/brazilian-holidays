@@ -3,7 +3,7 @@
 ;; Copyright (C) 2019 Jaguaraquem A. Reinaldo
 
 ;; Author: Jaguaraquem A. Reinaldo <jaguar.adler@gmail.com>
-;; Version: 1.0.3
+;; Version: 2.0.0
 ;; URL: https://github.com/jadler/brazilian-holidays
 ;; Keywords: calendar holidays
 ;; Package-Requires: ((emacs "26"))
@@ -38,7 +38,7 @@
 ;; (use-package brazilian-holidays
 ;;  :custom
 ;;  (brazilian-holidays-rj-holidays t)
-;;  (brazilian-holidays-sp-holidays t)
+;;  (brazilian-holidays-sp-holidays t))
 
 ;;; Code:
 
