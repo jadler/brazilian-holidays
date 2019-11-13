@@ -114,18 +114,42 @@
     (progn
       (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed        7     9 "Dia da Revolução Constitucionalista") t)))
 
-(defvar brazilian-holidays-remove-holidays t
-  "Remove holidays from other countries.")
-(when brazilian-holidays-remove-holidays
-  (setq holiday-bahai-holidays nil)
-  (setq holiday-hebrew-holidays nil)
-  (setq holiday-islamic-holidays nil)
-  (setq holiday-oriental-holidays nil)
-  (setq holiday-solar-holidays nil))
+(define-minor-mode brazilian-holidays-mode
+  "Toggle brazilian holidays mode.
+Interactively, with a prefix argument, enable
+Visual Line mode if the prefix argument is positive,
+and disable it otherwise.  If called from Lisp, toggle
+the mode if ARG is `toggle', disable the mode if ARG is
+a non-positive integer, and enable the mode otherwise
+\(including if ARG is omitted or nil or a positive integer).
 
-(setq holiday-general-holidays brazilian-holidays--general-holidays)
-(setq holiday-christian-holidays brazilian-holidays--christian-holidays)
-(setq holiday-other-holidays brazilian-holidays--other-holidays)
+When brazilian holidays mode is enabled, it will hide
+holidays from other countries."
+  :init-value t
+  :group 'brazilian-holidays
+  :global t
+  (if brazilian-holidays-mode
+      (progn
+        (setq holiday-bahai-holidays nil)
+        (setq holiday-christian-holidays brazilian-holidays--christian-holidays)
+        (setq holiday-general-holidays brazilian-holidays--general-holidays)
+        (setq holiday-hebrew-holidays nil)
+        (setq holiday-islamic-holidays nil)
+        (setq holiday-local-holidays brazilian-holidays--local-holidays)
+        (setq holiday-oriental-holidays nil)
+        (setq holiday-other-holidays brazilian-holidays--other-holidays)
+        (setq holiday-solar-holidays nil)
+        (custom-reevaluate-setting 'calendar-holidays))
+    (custom-reevaluate-setting 'holiday-bahai-holidays)
+    (custom-reevaluate-setting 'holiday-christian-holidays)
+    (custom-reevaluate-setting 'holiday-general-holidays)
+    (custom-reevaluate-setting 'holiday-hebrew-holidays)
+    (custom-reevaluate-setting 'holiday-islamic-holidays)
+    (custom-reevaluate-setting 'holiday-local-holidays)
+    (custom-reevaluate-setting 'holiday-oriental-holidays)
+    (custom-reevaluate-setting 'holiday-other-holidays)
+    (custom-reevaluate-setting 'holiday-solar-holidays)
+    (custom-reevaluate-setting 'calendar-holidays)))
 
 (provide 'brazilian-holidays)
 ;;; brazilian-holidays.el ends here
