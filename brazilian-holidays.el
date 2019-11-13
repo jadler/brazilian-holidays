@@ -97,13 +97,15 @@
   :group 'brazilian-holidays)
 
 (if brazilian-holidays-rj-holidays
-    (progn
-      (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed        1    20 "São Sebastião") t)
-      (add-to-list 'brazilian-holidays--local-holidays '(holiday-easter-etc       -47 "Carnaval") t)
-      (add-to-list 'brazilian-holidays--local-holidays '(holiday-easter-etc       -46 "Quarta-feira de cinzas") t)
-      (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed        4    23 "São Jorge") t)
-      (add-to-list 'brazilian-holidays--local-holidays '(holiday-float       10 1   3 "Dia do Comércio") t)
-      (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed       11    20 "Consciência Negra") t)))
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        1    20 "São Sebastião")
+             (holiday-easter-etc       -47 "Carnaval")
+             (holiday-easter-etc       -46 "Quarta-feira de cinzas")
+             (holiday-fixed        4    23 "São Jorge")
+             (holiday-float       10 1   3 "Dia do Comércio")
+             (holiday-fixed       11    20 "Consciência Negra")))))
 
 (defcustom brazilian-holidays-sp-holidays nil
   "Regional holidays and commemorative dates for São Paulo State."
@@ -111,8 +113,10 @@
   :group 'brazilian-holidays)
 
 (if brazilian-holidays-sp-holidays
-    (progn
-      (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed        7     9 "Dia da Revolução Constitucionalista") t)))
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        7     9 "Dia da Revolução Constitucionalista")))))
 
 ;;;###autoload
 (define-minor-mode brazilian-holidays-mode
