@@ -114,6 +114,7 @@
     (progn
       (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed        7     9 "Dia da Revolução Constitucionalista") t)))
 
+;;;###autoload
 (define-minor-mode brazilian-holidays-mode
   "Toggle brazilian holidays mode.
 Interactively, with a prefix argument, enable
@@ -135,11 +136,16 @@ holidays from other countries."
         (setq holiday-general-holidays brazilian-holidays--general-holidays)
         (setq holiday-hebrew-holidays nil)
         (setq holiday-islamic-holidays nil)
-        (setq holiday-local-holidays brazilian-holidays--local-holidays)
+        (setq holiday-local-holidays (delete-dups brazilian-holidays--local-holidays))
         (setq holiday-oriental-holidays nil)
         (setq holiday-other-holidays brazilian-holidays--other-holidays)
         (setq holiday-solar-holidays nil)
-        (custom-reevaluate-setting 'calendar-holidays))
+        (setq calendar-holidays
+              (append holiday-bahai-holidays holiday-christian-holidays
+                      holiday-general-holidays holiday-hebrew-holidays
+                      holiday-islamic-holidays holiday-local-holidays
+                      holiday-oriental-holidays holiday-other-holidays
+                      holiday-solar-holidays)))
     (custom-reevaluate-setting 'holiday-bahai-holidays)
     (custom-reevaluate-setting 'holiday-christian-holidays)
     (custom-reevaluate-setting 'holiday-general-holidays)
