@@ -3,7 +3,7 @@
 ;; Copyright (C) 2019 Jaguaraquem A. Reinaldo
 
 ;; Author: Jaguaraquem A. Reinaldo <jaguar.adler@gmail.com>
-;; Version: 1.0.3
+;; Version: 2.0.0
 ;; URL: https://github.com/jadler/brazilian-holidays
 ;; Keywords: calendar holidays
 ;; Package-Requires: ((emacs "26"))
@@ -38,7 +38,7 @@
 ;; (use-package brazilian-holidays
 ;;  :custom
 ;;  (brazilian-holidays-rj-holidays t)
-;;  (brazilian-holidays-sp-holidays t)
+;;  (brazilian-holidays-sp-holidays t))
 
 ;;; Code:
 
@@ -88,39 +88,78 @@
         (holiday-fixed      10   12 "Dia das Crianças")
         (holiday-fixed      11   19 "Dia da Bandeira")))
 
-(defvar brazilian-holidays-rj-holidays nil
-  "Regional holidays and commemorative dates for Rio de Janeiro State.")
+(defvar brazilian-holidays--local-holidays nil
+  "A list of regional holidays and commemorative dates for brazilian States.")
+
+(defcustom brazilian-holidays-rj-holidays nil
+  "Regional holidays and commemorative dates for Rio de Janeiro State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
 (if brazilian-holidays-rj-holidays
-    (setq holiday-local-holidays
+    (setq brazilian-holidays--local-holidays
           (append
-           holiday-local-holidays
-           '((holiday-fixed       1   20 "São Sebastião")
-             (holiday-easter-etc     -47 "Carnaval")
-             (holiday-easter-etc     -46 "Quarta-feira de cinzas")
-             (holiday-fixed       4   23 "São Jorge")
-             (holiday-float      10 0  3 "Dia do Comércio")
-             (holiday-fixed      11   20 "Consciência Negra")))))
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        1    20 "São Sebastião")
+             (holiday-easter-etc       -47 "Carnaval")
+             (holiday-easter-etc       -46 "Quarta-feira de cinzas")
+             (holiday-fixed        4    23 "São Jorge")
+             (holiday-float       10 1   3 "Dia do Comércio")
+             (holiday-fixed       11    20 "Consciência Negra")))))
 
-(defvar brazilian-holidays-sp-holidays nil
-  "Regional holidays and commemorative dates for São Paulo State.")
+(defcustom brazilian-holidays-sp-holidays nil
+  "Regional holidays and commemorative dates for São Paulo State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
 (if brazilian-holidays-sp-holidays
-    (setq holiday-local-holidays
+    (setq brazilian-holidays--local-holidays
           (append
-           holiday-local-holidays
-           '((holiday-fixed        7   9 "Dia da Revolução Constitucionalista")))))
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        7     9 "Dia da Revolução Constitucionalista")))))
 
-(defvar brazilian-holidays-remove-holidays t
-  "Remove holidays from other countries.")
-(when brazilian-holidays-remove-holidays
-  (setq holiday-bahai-holidays nil)
-  (setq holiday-hebrew-holidays nil)
-  (setq holiday-islamic-holidays nil)
-  (setq holiday-oriental-holidays nil)
-  (setq holiday-solar-holidays nil))
+;;;###autoload
+(define-minor-mode brazilian-holidays-mode
+  "Toggle brazilian holidays mode.
+Interactively, with a prefix argument, enable
+Visual Line mode if the prefix argument is positive,
+and disable it otherwise.  If called from Lisp, toggle
+the mode if ARG is `toggle', disable the mode if ARG is
+a non-positive integer, and enable the mode otherwise
+\(including if ARG is omitted or nil or a positive integer).
 
-(setq holiday-general-holidays brazilian-holidays--general-holidays)
-(setq holiday-christian-holidays brazilian-holidays--christian-holidays)
-(setq holiday-other-holidays brazilian-holidays--other-holidays)
+When brazilian holidays mode is enabled, it will hide
+holidays from other countries."
+  :init-value t
+  :group 'brazilian-holidays
+  :global t
+  (if brazilian-holidays-mode
+      (progn
+        (setq holiday-bahai-holidays nil)
+        (setq holiday-christian-holidays brazilian-holidays--christian-holidays)
+        (setq holiday-general-holidays brazilian-holidays--general-holidays)
+        (setq holiday-hebrew-holidays nil)
+        (setq holiday-islamic-holidays nil)
+        (setq holiday-local-holidays (delete-dups brazilian-holidays--local-holidays))
+        (setq holiday-oriental-holidays nil)
+        (setq holiday-other-holidays brazilian-holidays--other-holidays)
+        (setq holiday-solar-holidays nil)
+        (setq calendar-holidays
+              (append holiday-bahai-holidays holiday-christian-holidays
+                      holiday-general-holidays holiday-hebrew-holidays
+                      holiday-islamic-holidays holiday-local-holidays
+                      holiday-oriental-holidays holiday-other-holidays
+                      holiday-solar-holidays)))
+    (custom-reevaluate-setting 'holiday-bahai-holidays)
+    (custom-reevaluate-setting 'holiday-christian-holidays)
+    (custom-reevaluate-setting 'holiday-general-holidays)
+    (custom-reevaluate-setting 'holiday-hebrew-holidays)
+    (custom-reevaluate-setting 'holiday-islamic-holidays)
+    (custom-reevaluate-setting 'holiday-local-holidays)
+    (custom-reevaluate-setting 'holiday-oriental-holidays)
+    (custom-reevaluate-setting 'holiday-other-holidays)
+    (custom-reevaluate-setting 'holiday-solar-holidays)
+    (custom-reevaluate-setting 'calendar-holidays)))
 
 (provide 'brazilian-holidays)
 ;;; brazilian-holidays.el ends here
