@@ -88,26 +88,31 @@
         (holiday-fixed      10   12 "Dia das Crianças")
         (holiday-fixed      11   19 "Dia da Bandeira")))
 
-(defvar brazilian-holidays-rj-holidays nil
-  "Regional holidays and commemorative dates for Rio de Janeiro State.")
-(if brazilian-holidays-rj-holidays
-    (setq holiday-local-holidays
-          (append
-           holiday-local-holidays
-           '((holiday-fixed       1   20 "São Sebastião")
-             (holiday-easter-etc     -47 "Carnaval")
-             (holiday-easter-etc     -46 "Quarta-feira de cinzas")
-             (holiday-fixed       4   23 "São Jorge")
-             (holiday-float      10 0  3 "Dia do Comércio")
-             (holiday-fixed      11   20 "Consciência Negra")))))
+(defvar brazilian-holidays--local-holidays nil
+  "A list of regional holidays and commemorative dates for brazilian States.")
 
-(defvar brazilian-holidays-sp-holidays nil
-  "Regional holidays and commemorative dates for São Paulo State.")
+(defcustom brazilian-holidays-rj-holidays nil
+  "Regional holidays and commemorative dates for Rio de Janeiro State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-rj-holidays
+    (progn
+      (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed        1    20 "São Sebastião") t)
+      (add-to-list 'brazilian-holidays--local-holidays '(holiday-easter-etc       -47 "Carnaval") t)
+      (add-to-list 'brazilian-holidays--local-holidays '(holiday-easter-etc       -46 "Quarta-feira de cinzas") t)
+      (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed        4    23 "São Jorge") t)
+      (add-to-list 'brazilian-holidays--local-holidays '(holiday-float       10 1   3 "Dia do Comércio") t)
+      (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed       11    20 "Consciência Negra") t)))
+
+(defcustom brazilian-holidays-sp-holidays nil
+  "Regional holidays and commemorative dates for São Paulo State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
 (if brazilian-holidays-sp-holidays
-    (setq holiday-local-holidays
-          (append
-           holiday-local-holidays
-           '((holiday-fixed        7   9 "Dia da Revolução Constitucionalista")))))
+    (progn
+      (add-to-list 'brazilian-holidays--local-holidays '(holiday-fixed        7     9 "Dia da Revolução Constitucionalista") t)))
 
 (defvar brazilian-holidays-remove-holidays t
   "Remove holidays from other countries.")
