@@ -3,9 +3,9 @@
 ;; Copyright (C) 2019 Jaguaraquem A. Reinaldo
 
 ;; Author: Jaguaraquem A. Reinaldo <jaguar.adler@gmail.com>
-;; Version: 2.0.0
+;; Version: 2.0.1
 ;; URL: https://github.com/jadler/brazilian-holidays
-;; Keywords: calendar holidays
+;; Keywords: calendar holidays brazilian
 ;; Package-Requires: ((emacs "26"))
 
 ;; This file is not part of GNU Emacs.
@@ -25,7 +25,7 @@
 
 ;;; Commentary:
 
-;; Provides Brazilian holidays as well as for each State
+;; Provides Brazilian holidays as well as for each State.
 ;; To enable holidays for the desired State, just set a non-nil value for the
 ;; State variable.
 ;;
