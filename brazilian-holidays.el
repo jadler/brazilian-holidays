@@ -3,9 +3,9 @@
 ;; Copyright (C) 2019 Jaguaraquem A. Reinaldo
 
 ;; Author: Jaguaraquem A. Reinaldo <jaguar.adler@gmail.com>
-;; Version: 2.0.0
+;; Version: 2.0.1
 ;; URL: https://github.com/jadler/brazilian-holidays
-;; Keywords: calendar holidays
+;; Keywords: calendar holidays brazilian
 ;; Package-Requires: ((emacs "26"))
 
 ;; This file is not part of GNU Emacs.
@@ -25,7 +25,7 @@
 
 ;;; Commentary:
 
-;; Provides Brazilian holidays as well as for each State
+;; Provides Brazilian holidays as well as for each State.
 ;; To enable holidays for the desired State, just set a non-nil value for the
 ;; State variable.
 ;;
@@ -117,6 +117,19 @@
           (append
            brazilian-holidays--local-holidays
            '((holiday-fixed        7     9 "Dia da Revolução Constitucionalista")))))
+
+(defcustom brazilian-holidays-bh-holidays nil
+  "Regional holidays and commemorative dates for Belo Horizonte State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-bh-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-easter-etc       -47 "Carnaval")
+             (holiday-fixed        8    15 "Dia da Assunção de Nossa Senhora")
+             (holiday-fixed       12     8 "Dia da Imaculada Conceição")))))
 
 ;;;###autoload
 (define-minor-mode brazilian-holidays-mode
