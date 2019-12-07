@@ -118,6 +118,19 @@
            brazilian-holidays--local-holidays
            '((holiday-fixed        7     9 "Dia da Revolução Constitucionalista")))))
 
+(defcustom brazilian-holidays-bh-holidays nil
+  "Regional holidays and commemorative dates for Belo Horizonte State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-bh-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-easter-etc       -47 "Carnaval")
+             (holiday-fixed        8    15 "Dia da Assunção de Nossa Senhora")
+             (holiday-fixed       12     8 "Dia da Imaculada Conceição")))))
+
 ;;;###autoload
 (define-minor-mode brazilian-holidays-mode
   "Toggle brazilian holidays mode.
