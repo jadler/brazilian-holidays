@@ -211,6 +211,8 @@
              (holiday-fixed        8    15 "Dia da Assunção de Nossa Senhora")
              (holiday-fixed       12     8 "Dia da Imaculada Conceição")))))
 
+(make-obsolete brazilian-holidays-bh-holidays brazilian-holidays-mg-holidays "2.1.0")
+
 ;;;###autoload
 (define-minor-mode brazilian-holidays-mode
   "Toggle brazilian holidays mode.
