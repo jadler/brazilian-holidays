@@ -91,6 +91,20 @@
 (defvar brazilian-holidays--local-holidays nil
   "A list of regional holidays and commemorative dates for brazilian States.")
 
+(defcustom brazilian-holidays-ac-holidays nil
+  "Regional holidays and commemorative dates for Acre State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-ac-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        1    23 "Dia do Evangélico")
+             (holiday-fixed        5    15 "Aniversário do Acre")
+             (holiday-float        9     5 "Dia do Comércio")
+             (holiday-fixed       11    17 "Assinatura do Tratado de Petrópolis")))))
+
 (defcustom brazilian-holidays-rj-holidays nil
   "Regional holidays and commemorative dates for Rio de Janeiro State."
   :type 'boolean
