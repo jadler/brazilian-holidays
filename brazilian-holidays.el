@@ -91,6 +91,19 @@
 (defvar brazilian-holidays--local-holidays nil
   "A list of regional holidays and commemorative dates for brazilian States.")
 
+(defcustom brazilian-holidays-am-holidays nil
+  "Regional holidays and commemorative dates for Amazonas State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-am-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        9     5 "Elevação do Amazonas à categoria de província")
+             (holiday-fixed       11    20 "Consciência Negra")
+             (holiday-fixed       12     8 "Dia de Nossa Senhora da Conceição")))))
+
 (defcustom brazilian-holidays-rj-holidays nil
   "Regional holidays and commemorative dates for Rio de Janeiro State."
   :type 'boolean
