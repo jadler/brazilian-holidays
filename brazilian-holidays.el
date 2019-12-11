@@ -91,6 +91,20 @@
 (defvar brazilian-holidays--local-holidays nil
   "A list of regional holidays and commemorative dates for brazilian States.")
 
+(defcustom brazilian-holidays-al-holidays nil
+  "Regional holidays and commemorative dates for Alagoas State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-al-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        6    24 "São João")
+             (holiday-fixed        6    29 "São Pedro")
+             (holiday-fixed        9    16 "Emancipação Política de Alagoas")
+             (holiday-fixed       11    20 "Consciência Negra")))))
+
 (defcustom brazilian-holidays-rj-holidays nil
   "Regional holidays and commemorative dates for Rio de Janeiro State."
   :type 'boolean
