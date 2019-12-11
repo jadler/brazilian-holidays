@@ -91,6 +91,17 @@
 (defvar brazilian-holidays--local-holidays nil
   "A list of regional holidays and commemorative dates for brazilian States.")
 
+(defcustom brazilian-holidays-ba-holidays nil
+  "Regional holidays and commemorative dates for Bahia State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-ba-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        7     2 "Independência da Bahia")))))
+
 (defcustom brazilian-holidays-rj-holidays nil
   "Regional holidays and commemorative dates for Rio de Janeiro State."
   :type 'boolean
