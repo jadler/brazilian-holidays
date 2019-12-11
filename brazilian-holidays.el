@@ -3,7 +3,7 @@
 ;; Copyright (C) 2019 Jaguaraquem A. Reinaldo
 
 ;; Author: Jaguaraquem A. Reinaldo <jaguar.adler@gmail.com>
-;; Version: 2.0.1
+;; Version: 2.1.0
 ;; URL: https://github.com/jadler/brazilian-holidays
 ;; Keywords: calendar holidays brazilian
 ;; Package-Requires: ((emacs "26"))
@@ -91,6 +91,72 @@
 (defvar brazilian-holidays--local-holidays nil
   "A list of regional holidays and commemorative dates for brazilian States.")
 
+(defcustom brazilian-holidays-ac-holidays nil
+  "Regional holidays and commemorative dates for Acre State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-ac-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        1    23 "Dia do Evangélico")
+             (holiday-fixed        5    15 "Aniversário do Acre")
+             (holiday-float        9     5 "Dia do Comércio")
+             (holiday-fixed       11    17 "Assinatura do Tratado de Petrópolis")))))
+
+(defcustom brazilian-holidays-al-holidays nil
+  "Regional holidays and commemorative dates for Alagoas State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-al-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        6    24 "São João")
+             (holiday-fixed        6    29 "São Pedro")
+             (holiday-fixed        9    16 "Emancipação Política de Alagoas")
+             (holiday-fixed       11    20 "Consciência Negra")))))
+
+(defcustom brazilian-holidays-am-holidays nil
+  "Regional holidays and commemorative dates for Amazonas State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-am-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        9     5 "Elevação do Amazonas à categoria de província")
+             (holiday-fixed       11    20 "Consciência Negra")
+             (holiday-fixed       12     8 "Dia de Nossa Senhora da Conceição")))))
+
+(defcustom brazilian-holidays-ap-holidays nil
+  "Regional holidays and commemorative dates for Amapá State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-ap-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        3    19 "Dia de São José")
+             (holiday-fixed        7    25 "São Tiago")
+             (holiday-fixed       10     5 "Criação do Estado do Amapá")
+             (holiday-fixed       11    20 "Consciência Negra")))))
+
+(defcustom brazilian-holidays-ba-holidays nil
+  "Regional holidays and commemorative dates for Bahia State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-ba-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        7     2 "Independência da Bahia")))))
+
 (defcustom brazilian-holidays-rj-holidays nil
   "Regional holidays and commemorative dates for Rio de Janeiro State."
   :type 'boolean
@@ -119,7 +185,7 @@
            '((holiday-fixed        7     9 "Dia da Revolução Constitucionalista")))))
 
 (defcustom brazilian-holidays-bh-holidays nil
-  "Regional holidays and commemorative dates for Belo Horizonte State."
+  "Regional holidays and commemorative dates for Belo Horizonte Capital."
   :type 'boolean
   :group 'brazilian-holidays)
 
@@ -130,6 +196,22 @@
            '((holiday-easter-etc       -47 "Carnaval")
              (holiday-fixed        8    15 "Dia da Assunção de Nossa Senhora")
              (holiday-fixed       12     8 "Dia da Imaculada Conceição")))))
+
+(defcustom brazilian-holidays-mg-holidays nil
+  "Regional holidays and commemorative dates for Minas Gerais State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-mg-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-easter-etc       -47 "Carnaval")
+             (holiday-fixed        4    21 "Data Magna de Minas Gerais")
+             (holiday-fixed        8    15 "Dia da Assunção de Nossa Senhora")
+             (holiday-fixed       12     8 "Dia da Imaculada Conceição")))))
+
+(make-obsolete brazilian-holidays-bh-holidays brazilian-holidays-mg-holidays "2.1.0")
 
 ;;;###autoload
 (define-minor-mode brazilian-holidays-mode
