@@ -132,6 +132,20 @@
              (holiday-fixed       11    20 "Consciência Negra")
              (holiday-fixed       12     8 "Dia de Nossa Senhora da Conceição")))))
 
+(defcustom brazilian-holidays-ap-holidays nil
+  "Regional holidays and commemorative dates for Amapá State."
+  :type 'boolean
+  :group 'brazilian-holidays)
+
+(if brazilian-holidays-ap-holidays
+    (setq brazilian-holidays--local-holidays
+          (append
+           brazilian-holidays--local-holidays
+           '((holiday-fixed        3    19 "Dia de São José")
+             (holiday-fixed        7    25 "São Tiago")
+             (holiday-fixed       10     5 "Criação do Estado do Amapá")
+             (holiday-fixed       11    20 "Consciência Negra")))))
+
 (defcustom brazilian-holidays-rj-holidays nil
   "Regional holidays and commemorative dates for Rio de Janeiro State."
   :type 'boolean
