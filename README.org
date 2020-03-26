@@ -1,23 +1,22 @@
-# brazilian-holidays
+#+TITLE: README.org
+#+AUTHOR: Jaguaraquem Adler Reinaldo
 
-This package adds Brazilian public holidays to the Emacs calendar.
+[[https://melpa.org/#/brazilian-holidays][file:https://melpa.org/packages/brazilian-holidays-badge.svg]]
 
-If you have `org-agenda-include-diary` set to `t`, these will be also listed in
-the `org-agenda` view.
+* brazilian-holidays
 
-This package will soon be available in the MAPLE repository.
+This package provides brazilian holidays as well as for each State.
 
-## Installation
+** Installation
 
-To install this package, clone this repository, add it to `load-path`, and add
-`(require 'brazilian-holidays)` to `.emacs` or `init.el`.
+With `use-package`:
 
-## Configuration
+(use-package brazilian-holidays)
 
-To include State holidays, change the desired state variable to a non-nil
-value. For example `(setq brazilian-rj-holidays t)` for the Rio de Janeiro
-State, multiples States could be set.
+** Configuration
 
-## Constraits
+To include State holidays, change the desired state variable to a non-nil value. For example =(setq brazilian-rj-holidays t)= for the Rio de Janeiro State.
 
-At this moment, only RJ and SP States are available.
+(use-package brazilian-holidays
+    :custom ((brazilian-holidays-rj-holidays t)
+             (brazilian-holidays-sp-holidays t)))
