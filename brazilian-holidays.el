@@ -3,7 +3,7 @@
 ;; Copyright (C) 2019 Jaguaraquem A. Reinaldo
 
 ;; Author: Jaguaraquem A. Reinaldo <jaguar.adler@gmail.com>
-;; Version: 2.1.0
+;; Version: 2.1.1
 ;; URL: https://github.com/jadler/brazilian-holidays
 ;; Keywords: calendar holidays brazilian
 ;; Package-Requires: ((emacs "26"))
@@ -211,7 +211,7 @@
              (holiday-fixed        8    15 "Dia da Assunção de Nossa Senhora")
              (holiday-fixed       12     8 "Dia da Imaculada Conceição")))))
 
-(make-obsolete brazilian-holidays-bh-holidays brazilian-holidays-mg-holidays "2.1.0")
+(define-obsolete-variable-alias brazilian-holidays-bh-holidays brazilian-holidays-mg-holidays "2.1.0")
 
 ;;;###autoload
 (define-minor-mode brazilian-holidays-mode
