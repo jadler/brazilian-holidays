@@ -184,19 +184,6 @@
            brazilian-holidays--local-holidays
            '((holiday-fixed        7     9 "Dia da Revolução Constitucionalista")))))
 
-(defcustom brazilian-holidays-bh-holidays nil
-  "Regional holidays and commemorative dates for Belo Horizonte Capital."
-  :type 'boolean
-  :group 'brazilian-holidays)
-
-(if brazilian-holidays-bh-holidays
-    (setq brazilian-holidays--local-holidays
-          (append
-           brazilian-holidays--local-holidays
-           '((holiday-easter-etc       -47 "Carnaval")
-             (holiday-fixed        8    15 "Dia da Assunção de Nossa Senhora")
-             (holiday-fixed       12     8 "Dia da Imaculada Conceição")))))
-
 (defcustom brazilian-holidays-mg-holidays nil
   "Regional holidays and commemorative dates for Minas Gerais State."
   :type 'boolean
@@ -210,8 +197,6 @@
              (holiday-fixed        4    21 "Data Magna de Minas Gerais")
              (holiday-fixed        8    15 "Dia da Assunção de Nossa Senhora")
              (holiday-fixed       12     8 "Dia da Imaculada Conceição")))))
-
-(define-obsolete-variable-alias brazilian-holidays-bh-holidays brazilian-holidays-mg-holidays "2.1.0")
 
 ;;;###autoload
 (define-minor-mode brazilian-holidays-mode
