@@ -86,7 +86,7 @@
         (holiday-fixed       6   13 "Dia de Santo Antônio")
         (holiday-fixed       6   24 "Dia de São João")
         (holiday-fixed       6   29 "Dia de São Pedro")
-        (holiday-float       7 0  2 "Dia dos Pais")
+        (holiday-float       8 0  2 "Dia dos Pais")
         (holiday-fixed       8   25 "Dia do Soldado")
         (holiday-fixed      10   12 "Dia das Crianças")
         (holiday-fixed      11   19 "Dia da Bandeira")))
