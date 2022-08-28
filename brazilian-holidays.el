@@ -103,9 +103,10 @@
     (setq brazilian-holidays--local-holidays
           (append
            brazilian-holidays--local-holidays
-           '((holiday-fixed        1    23 "Dia do Evangélico")
-             (holiday-fixed        5    15 "Aniversário do Acre")
-             (holiday-float        9     5 "Dia do Comércio")
+           '((holiday-fixed        1    20 "Dia do Católico")
+             (holiday-fixed        1    23 "Dia do Evangélico")
+             (holiday-fixed        6    15 "Aniversário do Acre")
+             (holiday-float        9     5 "Dia da Amazônia")
              (holiday-fixed       11    17 "Assinatura do Tratado de Petrópolis")))))
 
 (defcustom brazilian-holidays-al-holidays nil
@@ -117,10 +118,11 @@
     (setq brazilian-holidays--local-holidays
           (append
            brazilian-holidays--local-holidays
-           '((holiday-fixed        6    24 "São João")
-             (holiday-fixed        6    29 "São Pedro")
+           '((holiday-fixed        6    24 "Dia de São João")
+             (holiday-fixed        6    29 "Dia de São Pedro")
              (holiday-fixed        9    16 "Emancipação Política de Alagoas")
-             (holiday-fixed       11    20 "Consciência Negra")))))
+             (holiday-fixed       11    20 "Dia da Consciência Negra")
+             (holiday-fixed       11    30 "Dia do Evangélico")))))
 
 (defcustom brazilian-holidays-am-holidays nil
   "Regional holidays and commemorative dates for Amazonas State."
@@ -132,7 +134,7 @@
           (append
            brazilian-holidays--local-holidays
            '((holiday-fixed        9     5 "Elevação do Amazonas à categoria de província")
-             (holiday-fixed       11    20 "Consciência Negra")
+             (holiday-fixed       11    20 "Dia da Consciência Negra")
              (holiday-fixed       12     8 "Dia de Nossa Senhora da Conceição")))))
 
 (defcustom brazilian-holidays-ap-holidays nil
@@ -145,9 +147,9 @@
           (append
            brazilian-holidays--local-holidays
            '((holiday-fixed        3    19 "Dia de São José")
-             (holiday-fixed        7    25 "São Tiago")
-             (holiday-fixed       10     5 "Criação do Estado do Amapá")
-             (holiday-fixed       11    20 "Consciência Negra")))))
+             (holiday-fixed        5    15 "Dia de Cabralzinho")
+             (holiday-fixed        9    13 "Criação do Estado do Amapá")
+             (holiday-fixed       11    20 "Dia da Consciência Negra")))))
 
 (defcustom brazilian-holidays-ba-holidays nil
   "Regional holidays and commemorative dates for Bahia State."
